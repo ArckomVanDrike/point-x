@@ -1,12 +1,8 @@
 [build]
 command = "npx webpack --mode production"
-publish = "dist"
+publish = "public"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-base = "."   # Impostato sulla cartella principale
-
-
+from = "/*"
+to = "/index.html"
+status = 200
