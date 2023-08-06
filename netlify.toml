@@ -7,4 +7,6 @@ publish = "dist"
   to = "/index.html"
   status = 200
 
+base = "."   # Impostato sulla cartella principale
+
 
