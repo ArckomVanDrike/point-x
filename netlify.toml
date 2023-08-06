@@ -1,6 +1,6 @@
 [build]
 command = "npx webpack --mode production"
-publish = "."
+publish = "dist"
 
 [[redirects]]
 from = "/*"
