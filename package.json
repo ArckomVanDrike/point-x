@@ -12,6 +12,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development"
+    "start": "npx webpack --mode production"
   }
 }
