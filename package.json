@@ -14,6 +14,6 @@
   "scripts": {
     "build": "npx webpack --mode production",
     "start": "npx webpack serve --mode development --open",
-    "deploy": "npx webpack --mode production"
+    "deploy": "npx webpack --mode production && cp index.html dist/index.html"
   }
 }
