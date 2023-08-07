@@ -5,12 +5,12 @@
     <!-- Link to Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-   <title>Point-X - Your GPS Location</title>
-<script src="./percorso_della_libreria/openlocationcode.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <title>Point-X - Your GPS Location</title>
+    <script src="./percorso_della_libreria/openlocationcode.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -24,12 +24,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <!-- Remove About and Contact links -->
                 </ul>
             </div>
         </div>
@@ -42,26 +37,14 @@
     <!-- Add this div to display the map -->
     <div id="map" style="height: 500px;"></div>
 
-    <!-- About Section -->
-    <section id="about" class="container mt-4">
-        <h1>About Point-X</h1>
-        <!-- ... Rest of the About section ... -->
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container mt-4">
-        <h1>Contact Point-X</h1>
-        <p>Email: iomentalista@gmail.com</p>
-    </section>
-
     <!-- Link to JavaScript files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="./dist/bundle.js" type="module"></script>
     <script>
-        // Inizializza la mappa sulla div 'map'
+        // Initialize map on the 'map' div
         const map = L.map('map').setView([51.505, -0.09], 13);
 
-        // Aggiungi un layer della mappa di OpenStreetMap
+        // Add OpenStreetMap tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
@@ -71,14 +54,13 @@
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
                     function (position) {
-                        // Get latitude and longitude from the position object
                         const latitude = position.coords.latitude;
                         const longitude = position.coords.longitude;
 
                         // Center the map on the user's location
                         map.setView([latitude, longitude], 15);
 
-                        // Display the user's coordinates and Plus Code on the marker
+                        // Display user's coordinates and Plus Code on the marker
                         const plusCode = OpenLocationCode.encode(latitude, longitude);
                         const userMarker = L.marker([latitude, longitude]).addTo(map);
                         userMarker.bindPopup(`Latitude: ${latitude}<br>Longitude: ${longitude}<br>Plus Code: ${plusCode}`).openPopup();
@@ -92,17 +74,18 @@
             }
         }
 
-        // Call the getUserLocation function when the page loads
+        // Call getUserLocation function when page loads
         getUserLocation();
 
-        // Aggiungi un marker sulla mappa per il Colosseo
+        // Add marker for Colosseum
         const colosseoMarker = L.marker([41.890251, 12.492373]).addTo(map);
         colosseoMarker.bindPopup("Colosseo").openPopup();
 
-        // Aggiungi un marker sulla mappa per la Torre Eiffel
+        // Add marker for Eiffel Tower
         const torreEiffelMarker = L.marker([48.8584, 2.2945]).addTo(map);
-        torreEiffelMarker.bindPopup("Torre Eiffel").openPopup();
+        torreEiffelMarker.bindPopup("Eiffel Tower").openPopup();
     </script>
 </body>
 
 </html>
+
