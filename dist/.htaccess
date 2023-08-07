@@ -1,3 +1,5 @@
-# Imposta il tipo MIME corretto per i file JavaScript
-*.js
-  Content-Type: text/javascript
+# File _headers
+
+# Set MIME type for JavaScript files
+/*.js
+  Content-Type: application/javascript
